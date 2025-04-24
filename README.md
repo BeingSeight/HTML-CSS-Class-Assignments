@@ -1,5 +1,6 @@
 # ALL HTML+CSS+JS CLASS ASSIGNMENTS Daywise Repository Links:
 
+# EASY ACCESS LINKS: https://beingseight.github.io/HTML-CSS-Class-Assignments/
 ## Day 1 & 2: [Day 1 & 2 Repository](https://github.com/BeingSeight/HTML-CSS-Class-Assignments/tree/6df878df4ad1dd13ec22f057014b8a1cb9e0397d/HTML%20%26%20CSS/Day%201%20%26%202)
 Total 1 Assignment covering Basic Structure of WebPage
 
