@@ -1,0 +1,435 @@
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: grid;
+    justify-content: center;
+    padding: 1%;
+    margin-top: 20px;
+    background-color: rgb(255, 115, 0);
+}
+
+/* Task 1.1: Basic Color Animation */
+.box {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    animation: colorChange 4s infinite;
+}
+
+@keyframes colorChange {
+    from { background-color: red; }
+    to { background-color: yellow; }
+}
+
+/* Task 1.2: Multi-step Animation */
+.multi {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    animation: moveColor 5s infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes moveColor {
+    0%   { left: 0; background: red; }
+    25%  { left: 50px; background: blue; }
+    50%  { left: 100px; background: yellow; }
+    100% { left: 200px; background: blueviolet; }
+}
+
+/* Task 1.3: Infinite Loop Animation */
+.pulse {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: blue;
+    margin: 20px auto;
+    animation: pulseAnim 1s infinite alternate;
+}
+
+@keyframes pulseAnim {
+    from { transform: scale(1); }
+    to   { transform: scale(1.2); }
+}
+
+
+/* Task 4: Hover Effect */
+.hover-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4285f4;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hover-btn:hover {
+    background-color: lightgreen;
+}
+
+
+/* Task 5: Focus State Styling */
+input {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border: 2px solid royalblue;
+    outline: none;
+}
+
+
+/* Task 6: First-child Styling */
+.task6-container li:first-child {
+    color: red;
+    font-weight: bold;
+}
+
+
+/* Task 7: Add Decorative Content */
+.task7-container h2::before {
+    content: "🔹 ";
+}
+
+
+/* Task 8: First-letter Styling */
+/* Fix: Use a class for the container instead of nth-child which is unreliable */
+.container:nth-child(9) p::first-letter {
+    font-size: 200%;
+    color: #ff0000;
+    font-weight: bold;
+    float: left;
+    line-height: 1;
+    margin-right: 5px;
+}
+
+
+/* Task 9: Custom List Markers */
+.custom-markers li::marker {
+    content: "➤ ";
+    color: purple;
+    font-size: 1.2em;
+}
+
+.custom-markers li {
+    color: black; /* Reset color for all list items in custom-markers */
+    font-weight: normal; /* Reset font-weight */
+    padding: 5px 0;
+}
+
+
+
+/* Task 10: Animated Button with Shine Effect */
+.shine-btn {
+    position: relative;
+    padding: 12px 30px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    overflow: hidden;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+}
+
+.shine-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-20deg);
+}
+
+.shine-btn:hover::after {
+    animation: slide-shine 0.75s linear forwards;
+}
+
+@keyframes slide-shine {
+    to { left: 125%; }
+}
+
+
+/* Part 2: Task 1: animation-name & animation-duration */
+.square {
+    width: 50px;
+    height: 50px;
+    background-color: #3498db;
+    margin: 20px 0;
+    animation-name: slideRight;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;  /* Adding infinite loop */
+    animation-direction: alternate;       /* Optional: to make it go back and forth */
+}
+
+@keyframes slideRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100px);
+    }
+}
+
+
+/* Task 2: animation-delay */
+.circle {
+    width: 50px;
+    height: 50px;
+    background-color: #e74c3c;
+    border-radius: 50%;
+    margin: 20px 0;
+    
+    /* The animation properties */
+    animation-name: changeColor;
+    animation-duration: 3s;
+    animation-delay: 2s;  /* Delay the start of animation by 2 seconds */
+    animation-iteration-count: infinite;  /* Adding infinite loop */
+}
+
+/* Defining the keyframe animation for color change */
+@keyframes changeColor {
+    0% {
+        background-color: #e74c3c;  /* Red */
+    }
+    50% {
+        background-color: #3498db;  /* Blue */
+    }
+    100% {
+        background-color: #2ecc71;  /* Green */
+    }
+}
+
+
+/* Task 3: animation-iteration-count */
+.bouncer {
+    width: 50px;
+    height: 50px;
+    background-color: #9b59b6;
+    margin: 20px 0;
+    animation-name: bounce;
+    animation-duration: 1s;
+    animation-iteration-count: 3;  /* Key property for this task - bounce exactly 3 times */
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+/* Task 4: animation-direction */
+.mover {
+    width: 50px;
+    height: 50px;
+    background-color: #f1c40f;
+    margin: 20px 0;
+    animation-name: moveLeftRight;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;  /* Key property for this task - yo-yo effect */
+}
+
+@keyframes moveLeftRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(150px);
+    }
+}
+
+/* Task 5: animation-timing-function */
+.timing-container {
+    height: 150px;
+    position: relative;
+    margin: 20px 0;
+}
+
+.timing-container div {
+    width: 60px;
+    height: 30px;
+    background-color: #2ecc71;
+    margin: 10px 0;
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    animation-name: moveRight;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+.box1 {
+    top: 0;
+    animation-timing-function: linear;  /* First timing function */
+}
+
+.box2 {
+    top: 40px;
+    animation-timing-function: ease-in;  /* Second timing function */
+}
+
+.box3 {
+    top: 80px;
+    animation-timing-function: ease-out;  /* Third timing function */
+}
+
+.box4 {
+    top: 120px;
+    animation-timing-function: ease-in-out;  /* Fourth timing function */
+}
+
+@keyframes moveRight {
+    from {
+        left: 0;
+    }
+    to {
+        left: calc(100% - 60px);
+    }
+}
+
+/* Task 6: animation-fill-mode: forwards */
+.grow-box {
+    width: 50px;
+    height: 50px;
+    background-color: #e67e22;
+    margin: 20px 0;
+    animation-name: grow;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;  /* Key property - stays at final state */
+}
+
+@keyframes grow {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.5);
+    }
+}
+
+/* Task 7: animation-fill-mode: backwards */
+.pre-styled-box {
+    width: 50px;
+    height: 50px;
+    background-color: #27ae60;
+    margin: 20px 0;
+    animation-name: fadeIn;
+    animation-duration: 3s;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;  /* Key property - applies start styles during delay */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0.2;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Task 8: animation-play-state */
+.pauser {
+    width: 50px;
+    height: 50px;
+    background-color: #16a085;
+    margin: 20px 0;
+    animation-name: rotate;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    /* animation-play-state controlled by JavaScript */
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Task 9: Combine All Animation Properties */
+.loader-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.loader {
+    width: 20px;
+    height: 20px;
+    background-color: #8e44ad;
+    border-radius: 50%;
+}
+
+.loader1 {
+    animation: bounce 0.6s ease-in-out infinite alternate;
+    animation-delay: 0s;
+}
+
+.loader2 {
+    animation: bounce 0.6s ease-in-out infinite alternate;
+    animation-delay: 0.2s;
+}
+
+.loader3 {
+    animation: bounce 0.6s ease-in-out infinite alternate;
+    animation-delay: 0.4s;
+}
+
+/* Task 10: Hover-triggered Animation */
+.card {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.card-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2980b9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(100%);
+    transition: transform 0.5s ease-in-out;
+}
+
+.card:hover .card-content {
+    transform: translateY(0);
+}
